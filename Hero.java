@@ -1,25 +1,16 @@
 public class Hero { 
     protected String name;
+    private MovementStrategy movementStrategy;
+    
 
-    public Hero(String name) {
+    public Hero(String name, MovementStrategy movementStrategy) {
         this.name = name;
+        this.movementStrategy = movementStrategy;
     }
 
-    public void move() {
-        System.out.println(name + " is moving.");
+
+    public void performMove() {
+        movementStrategy.move();
     }
 
-    public static void main(String[] args) {
-        Hero  hero = new Hero("Generic Hero");
-        hero.move();
-
-        Hero flyingHero = new FlyingHero("Flying Hero");
-        flyingHero.move();      
-
-        Hero swimmingHero = new SwimmingHero("Swimming Hero");
-        swimmingHero.move();
-        Hero seaDragon = new SeaDragon("Sea Dragon");
-        seaDragon.move();
-
-    }
 }
